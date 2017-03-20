@@ -1,12 +1,13 @@
 apply plugin: 'java'
 apply from: ('../dagger.gradle') // to configure denominator logging
+apply from: ('../maven.gradle')
 
 repositories { mavenLocal()
                mavenCentral() }
 
 dependencies {
   compile     'com.netflix.denominator:denominator-core:4.6.0'
-  compile     'com.netflix.denominator:denominator-dynect:4.6.0'
+  compile project (':denominator-dynect')
   compile     'com.netflix.denominator:denominator-ultradns:4.6.0'
   compile     'com.netflix.denominator:denominator-route53:4.6.0'
   compile     'com.netflix.denominator:denominator-clouddns:4.6.0'
