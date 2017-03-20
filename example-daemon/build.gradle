@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply from: ('../dagger.gradle') // to configure denominator logging
-apply from: ('../maven.gradle')
 
 repositories { mavenLocal()
                mavenCentral() }
