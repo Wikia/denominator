@@ -79,6 +79,9 @@ class DynECTErrorDecoder implements ErrorDecoder {
           } else if ("login: Bad or expired credentials".equals(message.info)) {
               sessionValid.set(false);
               return new RetryableException(messages.toString(), cause, null);
+          } else if ("login: inactivity logout".equals(message.info)) {
+              sessionValid.set(false);
+              return new RetryableException(messages.toString(), cause, null);
           } else if ("zone: Operation blocked by current task".equals(message.info())) {
             // Tasks are not exposed so the only thing we can do is wait a relatively long time.
             Date retryAfter = new Date(currentTimeMillis() + 1000);
